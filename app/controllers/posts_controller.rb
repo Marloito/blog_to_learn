@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    # get form
   end
 
   def create
