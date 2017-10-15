@@ -1,1 +1,6 @@
-<h1>Hello World</h1>
+<h1>Blog To Learn Rails</h1>
+
+<% @posts.each do |post| %>
+  <h2><%= post.title %></h2>
+  <p><%= post.body %></p>
+<% end %>
