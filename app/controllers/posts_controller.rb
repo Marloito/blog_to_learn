@@ -18,6 +18,7 @@ class PostsController < ApplicationController
 
   def new
     # not actually needed since we are not providing values for erb
+    # would be needed if used form autofill in ruby
   end
 
   def edit
