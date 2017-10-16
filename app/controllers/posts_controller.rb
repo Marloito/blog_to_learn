@@ -35,12 +35,10 @@ class PostsController < ApplicationController
     redirect_to @post
   end
 
-  def delete
-    # GET form
-  end
-
   def destroy
-    # post action
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to '/posts'
   end
 
   private
