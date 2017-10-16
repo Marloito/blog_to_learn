@@ -1,0 +1,7 @@
+<h1>Blog To Learn Rails</h1>
+<a href="/posts/new">Add Post</a>
+
+<% @posts.each do |post| %>
+  <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+  <p><%= post.body %></p>
+<% end %>

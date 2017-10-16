@@ -1,0 +1,21 @@
+<h1>Add Post!</h1>
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li style='color:red;'><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<form class="new-post-form" action="/posts" method="post">
+  <div>
+    <input type="text" name="post[title]" placeholder="title">
+  </div>
+  <div>
+    <input type="text" name="post[body]" placeholder="body">
+  </div>
+  <div>
+    <input type="submit" value="Save">
+  </div>
+</form>
+
+<a href="/">See All Posts...</a>

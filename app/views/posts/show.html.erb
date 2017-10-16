@@ -1,0 +1,11 @@
+<%= render 'show' %>
+
+<a href="/posts/<%= @post.id %>/edit">Edit</a>
+<a href="/">See All Posts</a>
+
+<form class="delete-post-button" action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <div>
+    <input type="submit" value="Delete">
+  </div>
+</form>
