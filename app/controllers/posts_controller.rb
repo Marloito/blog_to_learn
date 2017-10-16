@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
+      @errors = @post.errors.full_messages
       render 'new'
     end
   end
