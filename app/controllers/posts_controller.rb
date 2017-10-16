@@ -1,17 +1,25 @@
 class PostsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     @posts = Post.all
   end
 
   def new
+    # not actually needed since we are not providing values for erb
   end
 
   def create
-    # post action
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render 'new'
+    end
   end
 
   def show
-    # show individual
+    @post = Post.find(params[:id])
   end
 
   def edit
@@ -28,5 +36,11 @@ class PostsController < ApplicationController
 
   def destroy
     # post action
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body)
   end
 end
