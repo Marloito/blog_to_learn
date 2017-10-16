@@ -3,10 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-  end
-
-  def new
-    # not actually needed since we are not providing values for erb
+    @posts = @posts.sort{ |a, b| a.id <=> b.id }
   end
 
   def create
@@ -19,16 +16,23 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
+  def new
+    # not actually needed since we are not providing values for erb
   end
 
   def edit
     @post = Post.find(params[:id])
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def update
-    # post action
+    @post = Post.find(params[:id])
+    @post.update_attributes(title: params[:title], body: params[:body])
+
+    redirect_to @post
   end
 
   def delete

@@ -1,6 +1,7 @@
 <h1>Edit Post</h1>
 
-<form class="edit-post-form" action="/posts/<%=  %>" method="post">
+<form class="edit-post-form" action="/posts/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
   <div>
     <label>Title: </label>
     <input type="text" name="title" value="<%= @post.title %>">
